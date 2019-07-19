@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context path="/">
+    <Resource name="jdbc/OracleDB" auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxTotal="50"
+              maxIdle="10" maxWaitMillis="-1" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:orcl"
+              username="spring" password="1234"/>
+</Context>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+        // 달러(객체) 선택자
+        // 선택자. 이벤트 (콜백함수)
+        // 현재 문서가 로딩 완료되면 콜백함수가 자동으로 실행됨
+        $(document).ready(function () {
+            $("#button1").click(function () {
+                // append("추가할 내용") 마지막에 추가됨
+                $("ul").append("<li>레몬</li>");
+            });
+
+            $("#button2").click(function () {
+                //prepend("추가할 내용") 시작부분에 추가됨
+                $("ul").prepend("<li>레몬</li>");
+            });
+
+            $("#button3").click(function () {
+                //h2 뒤에 추가
+                $("h2").after("<marquee>hello</marquee>");
+            });
+
+            $("#button4").click(function () {
+                //h2 앞에 추가
+                $("h2").before("<img src='../images/tomato.jpg'>");
+            });
+
+            $("#button5").click(function () {
+                //div 를 모두 제거함
+                $("#div1").remove();
+            });
+
+            //div 는 유지 컨텐츠만 제거
+            $("#button6").click(function () {
+                $("#div1").empty();
+            })
+        });     </script>
+    <style>         #div1 {
+        border: 1px solid red;
+        width: 800px;
+        height: 300px
+    }     </style>
+    }
+</head>
+<body>
+<div id="div1"><h2>과일 목록</h2>
+    <ul>
+        <li>사과</li>
+        <li>포도</li>
+        <li>배</li>
+    </ul>
+</div>
+<button id="button1">append</button>
+<button id="button2">prepend</button>
+<button id="button3">after</button>
+<button id="button4">before</button>
+<button id="button5">remove</button>
+<button id="button6">empty</button>
+</body>
+</html>

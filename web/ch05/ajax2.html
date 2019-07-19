@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../include/jquery-3.2.1.min.js"></script>
+    <script>
+        //웹페이지가 로딩된 후 자동으로 실행되는 부분
+        $(function () {
+            $("#btnLogin").click(function () {
+                //버튼 클릭
+                var userid = $("#userid1").val(); //입력한 값
+                var passwd = $("#passwd1").val();
+                // result2.jsp?userid=kim&passwd=1234
+                var param = "userid=" + userid + "&passwd=" + passwd;
+                //쿼리스트링
+                // 백그라운드에서 실행되는 코드
+                $.ajax({
+                    type: "post", url: "result2.jsp", data: param,
+                    success: function (data) {
+                        //콜백함수(서버의 처리 완료 후)
+                        // responseText 응답텍스트
+                        // responseXML 응답XML
+                        console.log(data);
+                        $("#div1").html(data);
+                        //화면 갱신
+                    }
+                });
+            });
+        });
+
+
+        function login() {
+            var userid = $("#userid").val(); // 태그에 입력된 값 저장
+            var passwd = $("#passwd").val();
+            if (userid == "") {
+                alert("아이디를 입력하세요.");
+                $("#userid").focus(); //태그로 포커스 이동
+                return;
+            }
+            if (passwd == "") {
+                alert("비밀번호를 입력하세요.");
+                $("#passwd").focus();
+                return;
+            }
+            document.form1.submit(); //폼 데이터를 서버로 전송
+        }     </script>
+</head>
+<body>
+<h2>일반적인 방식</h2>
+<form action="result2.jsp" method="post" name="form1">
+    아이디 : <input id="userid" name="userid" type="text"><br>
+    비밀번호 :<input id="passwd" name="passwd" type="password"> <br>
+    <input onclick=" login ()" type="button" value="확인">
+</form>
+
+<h2>ajax 방식</h2>
+아이디 : <input id="userid1" type="text"><br>
+비밀번호 : <input id="passwd1" type="password"><br>
+<input id="btnLogin" type="button" value="확인">
+<div id="div1"></div>
+</body>
+</html>

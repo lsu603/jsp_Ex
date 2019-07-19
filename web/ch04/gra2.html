@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="200"></canvas>
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    context.arc(70, 50, 10, 0, 2.0 * Math.PI, false);
+    //안쪽 원   2.0 * Math.PI : 360 도 원
+    context.arc(80, 60, 120, 0, 2.0 * Math.PI, false); //바깥 원
+    context.stroke();
+    // 테두리 그리기
+    // createRadialGradient(x1,y1,r1,x2,y2,r2)   r 반지름
+    var gradient = context.createRadialGradient(70, 50, 10, 80, 60, 120);
+    gradient.addColorStop(0, "white");
+    gradient.addColorStop(1, "red");
+    context.fillStyle = gradient; // 페인트 스타일 지정
+    context.fillRect(0, 0, 200, 200); // 사각형 출력
+    // </script>
+</body>
+</html>

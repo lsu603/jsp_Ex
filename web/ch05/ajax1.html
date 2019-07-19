@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../include/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#button1").onclick(function () {
+                // document.getElementById("dan").value
+                var dan = $("#dan").val(); // id가 dan인 태그에 입력된 값
+                // 비동기적인 방식으로 호출(백그라운드에서 실행됨)
+                $.ajax({
+                    type: "post",
+                    url: "result1.jsp",
+                    data: "dan=" + dan,
+                    success: function (data) {
+                        //콜백함수(처리 완료시 실행됨)
+                        $("#result").html(data);
+                    }
+                });
+            });
+        });     </script>
+</head>
+<body>
+단을 입력하세요
+<input id="dan" type="text">
+<input id="button1" type="button" value="확인">
+<div id="result"></div>
+</body>
+</html>

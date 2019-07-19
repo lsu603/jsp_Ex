@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../include/jquery-3.2.1.min.js"></script>
+    <script>         $(function () {
+        $("#button1").click(function () {
+            // getJSON(json데이터, 콜백함수)
+            // 콜백함수 : function (json 객체 배열, 처리상태)
+            // json 파일을 읽어서 파싱한 후 화면 출력
+            $.getJSON("student.json", function (data, textStatus) {
+                console.log("data : " + data);
+                console.log("textStatus : " + textStatus);
+                //id가 students인 태그(테이블)에 자식노드 추가
+                $("#students").append("<tr><td>번호</td><td>이름</td><td>전화</td></tr>");
+                //객체배열의 모든 요소를 반복 처리함
+                // for(개별값 : 집합)
+                // $.each(집합, 개별값을 위한 함수)
+                $.each(data, function () {
+                    $("#students").append("<tr><td>" + this.num + "</td>" + "<td>" + this.name + "</td>" + "<td>" + this.tel + "</td></tr>");
+                });
+            });
+        });
+    });     </script>
+</head>
+<body>
+<table border="1" id="students" style="width:500px;"></table>
+<button id="button1">확인</button>
+</body>
+</html>

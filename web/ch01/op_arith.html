@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function test(x,y) {
+        document.write(typeof (x)+"<br>");
+        document.write(typeof (y)+"<br>");
+
+        x=parseInt(x,16);
+        y=parseInt(y,16);
+
+        document.write(typeof (x)+"<br>");
+        document.write(typeof (y)+"<br>");
+        document.write(x+y+"<br>");
+        document.write(x-y+"<br>");
+        document.write(x*y+"<br>");
+        document.write(x/y+"<br>");
+        document.write(x%y+"<br>");
+    }
+</script>
+<body>
+<form name="forml">
+a:<input type="text" name="a" size="10">
+b:<input type="text" name="b" size="10">
+<input type="button" value="확인"
+       onclick="test(document.forml.a.value,document.forml.b.value)">
+</form>
+</body>
+</html>

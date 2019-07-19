@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="200"></canvas>
+<script>
+    var canvas = document.getElementById("myCanvas");
+    var context = canvas.getContext("2d");
+    //createLinearGradient(x1,y1,x2,y2) 선형 효과  시작점, 종료점
+    var gradient = context.createLinearGradient(0, 0, 200, 0);
+    // 시작색상 (색상 범위 0.0 ~ 1.0)
+    gradient.addColorStop(0, "yellow");
+    gradient.addColorStop(0.4, "red");
+    gradient.addColorStop(0.7, "green");     // 종료색상
+    gradient.addColorStop(1, "blue");     // 스타일 설정
+    context.fillStyle = gradient;
+    context.fillRect(10, 10, 180, 90); // 사각형 그리기 </script>
+</body>
+</html>

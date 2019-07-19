@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../include/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+            // 선택자.css("스타일속성","값") 선택한 요소의 스타일 변경
+            // 3 의 배수
+            $("li:nth-child(3n)").css("background-color", "yellow");
+            //끝에서 두번째
+            $("li:nth-last-of-type(2)").css("background-color", "pink");
+        });
+    </script>
+</head>
+<body>
+<h1>탐색 선택자</h1>
+<ul>
+    <li>내용 1</li>
+    <li>내용 2</li>
+    <li>내용 3</li>
+    <li>내용 4</li>
+    <li>내용 5</li>
+    <li>내용 6</li>
+</ul>
+<ul>
+    <li>내용 1</li>
+    <li>내용 2</li>
+    <li>내용 3</li>
+    <li>내용 4</li>
+</ul>
+</body>
+</html>
